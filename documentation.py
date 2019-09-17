@@ -46,6 +46,6 @@ if __name__ == '__main__':
     colorList = ["red", "green", "yellow", "orange", "firebrick"]
 
     myTurtle = turtle.Turtle()
-    stamper(myTurtle, 3)
-
+    stamper(myTurtle)
+    
     turtle.mainloop()

@@ -18,6 +18,7 @@ def cumsum(i):
     for num in range(len(i)-1):
         cumSum = cumSum + num
         sums.append(cumSum)
+    
 
 t = [1,2,3]
-print(cumsum(t))
+cumsum(t)

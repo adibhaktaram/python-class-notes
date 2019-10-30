@@ -21,10 +21,9 @@ def invertDict(d):
             inverse[val].append(key)
     return inverse
 if __name__ == "__main__":
+    '''
     pets = {"cats": 5, "horses": 2, "pony": 1, "chickens": 14, "goats":3, "cats":2, "horses":4, "pony": 1}
-
+    '''
     phrase = "i like my pets and feed them everyday"
     freq = histogram(phrase)
-    invert  = invertDict(freq)
     print(freq)
-    print(invert)

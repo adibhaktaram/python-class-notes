@@ -19,17 +19,20 @@ class Point:
         else:
             return self.y == other.y
 
+    def draw(self):
+        pyplot.plot(self.x, self.y, "bo")
 
-class nPoint:
+
+class nPoint():
     ''' Represents a point in n-space
 
         Attributes:
             point - tuple; the coordinates of that Point
-            numCords - int; The number of coordinates that the point has.
+            numCoords - int; The number of coordinates that the point has.
     '''
 
     def __init__(self, *args):
-        self.numCords = len(args)
+        self.numCoords = len(args)
         self.point = args
 
     def __str__(self):
@@ -38,13 +41,32 @@ class nPoint:
     def __add__(self, other):
         t = list()
 
-        for i in range(self.numCords):
-            t.append(self.point[i] + other.point[i])
+        if self.numCoords != other.numCoords:
+            raise NumCoordsException("The Number of Coordinates do NOT match!")
 
-        return Point(*t)
+        for i in range(self.numCoords):
+            t.append(self.point[i] + other.point[i])
+        return nPoint(*t)
+
+    class NumCoordsException(Exception):
+        '''THis exception is raised when the number of coordinates do not match'''
 
 
 if __name__ == '__main__':
+    import matplotlib.pyplot as pyplot
+
     p = nPoint(-2, 7, 9)
     q = nPoint(2, 3, 1)
-    print(p+q)
+
+    lp = Point(-7, 1)
+    lq = Point(3, 1)
+    lr = Point(-2, 15)
+    ls = Point(-13, 35)
+
+    '''
+    pyplot.plot([lp.x, lq.x, lr.x, ls.x], [lp.y, lq.y, lr.y, ls.y], "rx")
+    pyplot.plot([lp.x, lq.x], [lp.y, lq.y], "go-", label = "line", linewidth = 1)
+    '''
+
+    lp.draw()
+    pyplot.show()

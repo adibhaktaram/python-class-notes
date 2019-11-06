@@ -11,6 +11,17 @@ class Rectangle:
         lower - the lower left corner of the point object
     '''
 
+    def draw(self, t):
+        t.pu()
+        t.goto(self.lower.x, self.lower.y)
+        t.pd()
+        for _ in range(2):
+            t.fd(self.length)
+            t.lt(90)
+            t.fd(self.width)
+            t.lt(90)
+
+
 class Triangle:
     '''
     Represents a Triangle
@@ -74,5 +85,5 @@ if __name__ == '__main__':
     myTriangle = Triangle()
     myTriangle.length = 100
 
-    drawTriangle(myTurtle, myTriangle)
+    myRect.draw(myTurtle)
     turtle.mainloop()
